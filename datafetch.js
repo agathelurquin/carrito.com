@@ -1,5 +1,7 @@
-// const fs = require("fs");
+const fs = require("fs");
+data = require("./data.json")
 const axios = require('axios');
+const{faker} = require ("@faker-js/faker")
 
 const options = {
     method: "GET",
@@ -40,7 +42,7 @@ async function dataFetch() {
 // dataFetch()
 
 async function getFinalList() {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 37; i++) {
         options.params.offset = i 
         const fetchedList = await dataFetch()
         // console.log(fetchedList.length) 
@@ -63,13 +65,20 @@ function cleanData () {
             name: product.name,
             colour: product.colour,
             brandName: product.brandName,
+            price: product.price.current.value,
             url: product.url,
             image: product.imageUrl,
+            description: faker.commerce.productDescription(),
+		    material: faker.commerce.productMaterial(),
+            gender: faker.person.sex()
+
         }
     
         dataClean.push(newData)
     }
     console.log(dataClean)
+
+    fs.writeFileSync("data.json", JSON.stringify(dataClean, null, "\t"))
    
 }
 
