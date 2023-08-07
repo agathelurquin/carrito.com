@@ -1,7 +1,36 @@
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import React from 'react'
+import Men from "./Pages/Men"
+import Women from "./Pages/Women"
+import Kid from "./Pages/Kid"
+import NavBar from "./Components/Navbar";
+import HomePage from "./Pages/HomePage";
 
 function App() {
-  return <></>;
+  return (
+    <>
+		<Routes>
+				<Route element={<NavBar />}/>
+					<Route
+						path="/"
+						element={<HomePage />} 
+					/>
+					<Route
+						path="/women"
+						element={<Women  />}
+					/>
+					<Route
+						path="/men"
+						element={<Men />}
+					/>
+          <Route
+						path="/kids"
+						element={<Kid  />}
+					/>
+			</Routes>
+		</>
+  )
 }
 
 export default App;
