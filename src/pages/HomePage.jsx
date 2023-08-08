@@ -56,9 +56,6 @@ function Home() {
           <div className="product-woman">
             <Carrousel type="Women" />
           </div>
-          <div className="product-kids">
-            <Carrousel type="Kids" />
-          </div>
         </div>
   
         <div className="footer">

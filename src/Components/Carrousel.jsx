@@ -33,7 +33,7 @@ function Carrousel({type}) {
 				<div className="display-products">
 					{products ? products.map((product) => (
 						<div key={product.id} className="card">
-							<Link to={`/products/${product.gender}`}>
+							<Link to={`/${product.gender.toLowerCase()}`}>
 								<div className="card-image">
                                 <img src={product.image} alt={product.image} />
 								</div>
