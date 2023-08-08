@@ -1,7 +1,28 @@
 import "./App.css";
 
+import { Routes, Route } from "react-router-dom";
+import Men from "./src/pages/Men";
+import Women from "./src/pages/Women";
+import Kid from "./src/pages/Kid";
+import NavBar from "./Components/Navbar";
+import HomePage from "./src/pages/HomePage";
+import AllProducts from "./src/pages/AllProducts";
+import ProductsId from "./src/pages/ProductsId";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <Routes>
+        <Route element={<NavBar />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/women" element={<Women />} />
+        <Route path="/men" element={<Men />} />
+        <Route path="/kids" element={<Kid />} />
+        <Route path="/all-products" element={<AllProducts />} />
+        <Route path="/product/:id" element={<ProductsId />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
