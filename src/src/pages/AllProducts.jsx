@@ -29,12 +29,13 @@ function AllProducts() {
           <article key={shoe.id}>
             <h1>{shoe.name}</h1>
             <img src={`https://${shoe.image}`} alt="" width={300} />
-            <h2>Description</h2>
-            <p>{shoe.description}</p>
+
             <h3>Gender</h3>
             <p>{shoe.gender}</p>
             <h3>Colour</h3>
             <p>{shoe.colour}</p>
+            <h3>Price</h3>
+            <p>$ {shoe.price}</p>
             <Link to={`/product/${shoe.id}`}>Shoe details page</Link>
           </article>
         );
