@@ -15,6 +15,7 @@ function Carrousel({type}) {
 			})
 			.catch((e) => console.log(e));
 	}, [counter]);
+	
 
 	// if (!products) {
 	// 	// Return a skeleton if you don't want the UI it move when fetching new data
@@ -34,11 +35,11 @@ function Carrousel({type}) {
 						<div key={product.id} className="card">
 							<Link to={`/products/${product.gender}`}>
 								<div className="card-image">
-                                <img src={`${product.image}`} alt={product.image} />
+                                <img src={product.image} alt={product.image} />
 								</div>
 								<div className="card-content">
-									<p className="brand-name">{product.brandName}</p>
-									<p className="price">{product.price}€</p>
+									<p className="brand-name">{product.brand}</p>
+									<p className="price">{product.currentPrice}€</p>
 								</div>
 							</Link>
 						</div>

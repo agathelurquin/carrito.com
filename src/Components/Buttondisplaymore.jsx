@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function buttondisplaymore() {
+function ButtonDisplayMore() {
     const[counter,setCounter] = useState(1);
 
     useEffect(() => {
@@ -26,4 +26,4 @@ function buttondisplaymore() {
   )
 }
 
-export default buttondisplaymore;
+export default ButtonDisplayMore;

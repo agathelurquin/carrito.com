@@ -3,7 +3,6 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Men from "./pages/Men";
 import Women from "./pages/Women";
-import Kid from "./pages/Kid";
 import NavBar from "./Components/Navbar";
 import HomePage from "./pages/HomePage";
 import AllProducts from "./pages/AllProducts";
@@ -22,7 +21,6 @@ function App() {
         */}
         <Route path="/women" element={<Women />} />
         <Route path="/men" element={<Men />} />
-        <Route path="/kids" element={<Kid />} />
         <Route path="/all-products" element={<AllProducts />} />
         <Route path="/product/:id" element={<ProductsId />} />
       </Routes>
