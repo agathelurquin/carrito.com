@@ -1,43 +1,28 @@
 import "./App.css";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import React from 'react'
-import Men from "./Pages/Men"
-import Women from "./Pages/Women"
-import Kid from "./Pages/Kid"
+import { Routes, Route } from "react-router-dom";
+import Men from "./src/pages/Men";
+import Women from "./src/pages/Women";
+import Kid from "./src/pages/Kid";
 import NavBar from "./Components/Navbar";
-import HomePage from "./Pages/HomePage";
+import HomePage from "./src/pages/HomePage";
 import AllProducts from "./src/pages/AllProducts";
 import ProductsId from "./src/pages/ProductsId";
 
 function App() {
   return (
     <>
-		<Routes>
-				<Route element={<NavBar />}/>
-					<Route
-						path="/"
-						element={<HomePage />} 
-					/>
-					<Route
-						path="/women"
-						element={<Women  />}
-					/>
-					<Route
-						path="/men"
-						element={<Men />}
-					/>
-          <Route
-						path="/kids"
-						element={<Kid  />}
-					/>
+      <Routes>
+        <Route element={<NavBar />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/women" element={<Women />} />
+        <Route path="/men" element={<Men />} />
+        <Route path="/kids" element={<Kid />} />
         <Route path="/all-products" element={<AllProducts />} />
         <Route path="/product/:id" element={<ProductsId />} />
-			</Routes>
-		</>
-  )
-
+      </Routes>
+    </>
+  );
 }
 
 export default App;
