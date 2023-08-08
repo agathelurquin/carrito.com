@@ -7,6 +7,20 @@ const API_URL = "https://carrito.adaptable.app/products";
 function AllProducts() {
   const [shoes, setShoes] = useState(null);
 
+  // CODE TO SELECT THE PRODUCTS BY KEY
+
+  // useEffect(() => {
+  //   axios
+  //     .get(API_URL)
+  //     .then((response) => {
+  //       console.log(
+  //         "Heloooooooo",
+  //         response.data.filter((product) => product.category === "shoesMen")
+  //       );
+  //     })
+  //     .catch((e) => console.log(e));
+  // }, []);
+
   useEffect(() => {
     axios
       .get(`${API_URL}`)
@@ -27,7 +41,7 @@ function AllProducts() {
         return (
           <article key={shoe.id}>
             <h1>{shoe.name}</h1>
-            <img src={`https://${shoe.image}`} alt="" width={300} />
+            <img src={shoe.imag} alt="" width={300} />
 
             <h3>Gender</h3>
             <p>{shoe.gender}</p>

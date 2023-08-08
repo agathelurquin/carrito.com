@@ -37,7 +37,7 @@ function Home() {
               <div key={product.id} className="card">
                 <Link to={`/products/${product.id}`}>
                   <div className="card-image">
-                    <img src={`https://${product.image}`} alt={product.image} />
+                    <img src={product.image} alt={product.image} />
                   </div>
                   <div className="card-content">
                     <p className="product-name">{product.brandName}</p>
