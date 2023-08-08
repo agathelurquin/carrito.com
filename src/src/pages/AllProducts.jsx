@@ -1,101 +1,81 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
 
-const API_URL = "https://carrito.adaptable.app/products";
+// const API_URL = "https://carrito.adaptable.app/products";
 
 function AllProducts() {
   const [shoes, setShoes] = useState(null);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
+    console.log(page);
     axios
-      .get(`${API_URL}`)
+      .get(`https://carrito.adaptable.app/products?_page=${page}&_limit=12`)
       .then((res) => {
-        console.log(res);
-        setShoes(res.data);
+        let currentShoes = shoes ? shoes : [];
+        setShoes([...currentShoes, ...res.data]);
       })
       .catch((e) => console.log(e));
-  }, []);
+  }, [page]);
 
+  // const handleScroll = () => {
+  //   // console.log("height: ", document.documentElement.scrollHeight);
+  //   // console.log("top: ", document.documentElement.scrollTop);
+  //   // console.log("window: ", window.innerHeight);
+  //   if (
+  //     window.innerHeight + document.documentElement.scrollTop + 1 >=
+  //     document.documentElement.scrollHeight
+  //   ) {
+  //     setPage(page + 1);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  // }, []);
+  const fetchData = () => {
+    setPage(page + 1);
+    axios
+      .get(`https://carrito.adaptable.app/products?_page=${page}&_limit=9`)
+      .then((res) => {
+        let currentShoes = shoes ? shoes : [];
+        setShoes([...currentShoes, ...res.data]);
+      })
+      .catch((e) => console.log(e));
+  };
   if (!shoes) {
     return <div className="loading">Loading...</div>;
   }
   return (
     <div>
-      <h2>All Products</h2>
+      <h1>All Products</h1>
       {shoes.map((shoe) => {
         return (
-          <article key={shoe.id}>
-            <h1>{shoe.name}</h1>
-            <img src={`https://${shoe.image}`} alt="" width={300} />
-
-            <h3>Gender</h3>
-            <p>{shoe.gender}</p>
-            <h3>Colour</h3>
-            <p>{shoe.colour}</p>
-            <h3>Price</h3>
-            <p>$ {shoe.price}</p>
-            <Link to={`/product/${shoe.id}`}>Shoe details page</Link>
-          </article>
+          <div>
+            <div key={shoe.id} c>
+              <Link to={`/product/${shoe.id}`}>
+                <img src={`https://${shoe.image}`} alt="" width={200} />
+              </Link>
+              <h2>{shoe.name}</h2>
+              <h3>Colour</h3>
+              <p>{shoe.colour}</p>
+              <h3>Price</h3>
+              <p>$ {shoe.price}</p>
+            </div>
+          </div>
         );
       })}
+      <InfiniteScroll
+        dataLength={shoes.length}
+        data
+        next={fetchData}
+        hasMore={true}
+        loader={<h4>Loading...</h4>}
+      ></InfiniteScroll>
     </div>
   );
 }
 
 export default AllProducts;
-
-// import axios from "axios";
-// import { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
-
-// function Home() {
-//   const [products, setProducts] = useState();
-//   const [counter, setCounter] = useState(1);
-
-//   useEffect(() => {
-//     axios
-//       .get(`https://carrito.adaptable.app/products?_page=${counter}`)
-//       .then((response) => {
-//         setProducts(response.data);
-//       })
-//       .catch((e) => console.log(e));
-//   }, [counter]);
-
-//   if (!products) {
-//     return <p>Loading...</p>;
-//   }
-
-//   return (
-//     <div className="page-container">
-//       <div className="list-content">
-//         <h1 className="home-title">
-//           <span className="highlight-color italic">Carrito</span>
-//           <span className="italic"> Shop </span>
-//         </h1>
-
-//         <div className="page-list-wrapper">
-//           <div className="cards-wrapper">
-//             <h2 className="home-subtitle">All Products</h2>
-//             {products.map((product) => (
-//               <div key={product.id} className="card">
-//                 <Link to={`/products/${product.id}`}>
-//                   <div className="card-image">
-//                     <img src={`https://${product.image}`} alt={product.image} />
-//                   </div>
-//                   <div className="card-content">
-//                     <p className="product-name">{product.brandName}</p>
-//                     <p className="price">{product.price}€</p>
-//                   </div>
-//                 </Link>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//       <button onClick={() => setCounter(counter + 1)}>Next page</button>
-//     </div>
-//   );
-// }
-
-// export default Home;
