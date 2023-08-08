@@ -1,7 +1,17 @@
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import AllProducts from "./src/pages/AllProducts";
+import ProductsId from "./src/pages/ProductsId";
 
 function App() {
-  return <></>;
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/all-products" element={<AllProducts />} />
+        <Route path="/product/:id" element={<ProductsId />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
