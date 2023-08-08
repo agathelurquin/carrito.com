@@ -1,17 +1,43 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import React from 'react'
+import Men from "./Pages/Men"
+import Women from "./Pages/Women"
+import Kid from "./Pages/Kid"
+import NavBar from "./Components/Navbar";
+import HomePage from "./Pages/HomePage";
 import AllProducts from "./src/pages/AllProducts";
 import ProductsId from "./src/pages/ProductsId";
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
+    <>
+		<Routes>
+				<Route element={<NavBar />}/>
+					<Route
+						path="/"
+						element={<HomePage />} 
+					/>
+					<Route
+						path="/women"
+						element={<Women  />}
+					/>
+					<Route
+						path="/men"
+						element={<Men />}
+					/>
+          <Route
+						path="/kids"
+						element={<Kid  />}
+					/>
         <Route path="/all-products" element={<AllProducts />} />
         <Route path="/product/:id" element={<ProductsId />} />
-      </Routes>
-    </div>
-  );
+			</Routes>
+		</>
+  )
+
 }
 
 export default App;
