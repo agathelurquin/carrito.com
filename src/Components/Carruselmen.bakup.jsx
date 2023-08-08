@@ -1,17 +1,21 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Buttondisplaymore from "./Buttondisplaymore";
 
 function MenStore() {
   const [men, setMen] = useState();
+  const [counter, setCounter] = useState(1);
+//   const [randomProducts, setRandomProducts] = useState([]);
+
   useEffect(() => {
     axios
-      .get("https://carrito.adaptable.app/products")
+      .get(`https://carrito.adaptable.app/products?_page=${counter}&_limit=3`)
       .then((response) => {
         setMen(response.data);
       })
       .catch((e) => console.log(e));
-  }, []);
+  }, [counter]);
 
   if (!men) {
     return <p>Loading...</p>;
@@ -20,10 +24,12 @@ function MenStore() {
   return (
     <div className="page-container">
       <div className="list-content">
-        <h1>
-          <span className="highlight-color italic">Carrito</span>
-          <span className="italic"> Men Section</span>
-        </h1>
+        <h2>
+          <span className="highlight-color italic">Men Section</span>
+          {/* <span className="italic"> Men Section</span> */}
+        </h2>
+
+      
 
         <div className="cards-wrapper">
           {men.map((man) => (
@@ -41,6 +47,8 @@ function MenStore() {
           ))}
         </div>
       </div>
+      <Buttondisplaymore />
+      {/* <button onClick={() => setCounter(counter +1)}>More Shoes</button> */}
     </div>
   );
 }
