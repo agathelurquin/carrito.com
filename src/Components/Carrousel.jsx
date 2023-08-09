@@ -9,7 +9,7 @@ function Carrousel({type}) {
 	useEffect(() => {
 		setProducts(null)
 		axios
-			.get(`https://carrito.adaptable.app/products?_page=${counter}&_limit=3`)
+			.get(`https://carrito.adaptable.app/products?_page=${counter}&_limit=4`)
 			.then((response) => {
 				setProducts(response.data);			
 			})
