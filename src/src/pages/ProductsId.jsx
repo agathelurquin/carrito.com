@@ -28,10 +28,10 @@ function ProductsId() {
       <article key={product.id}>
         <h1>{product.name}</h1>
         <Carousel width={500}>
-          <img src={`https://${product.image}`} alt="" />
-          <img src={`https://${product.image}`} alt="" />
-          <img src={`https://${product.image}`} alt="" />
-          <img src={`https://${product.image}`} alt="" />
+          <img src={`${product.image}`} alt="" />
+          <img src={`${product.secondImages[0]}`} alt="" />
+          <img src={`${product.secondImages[1]}`} alt="" />
+          <img src={`${product.secondImages[2]}`} alt="" />
         </Carousel>
         <h2>Brand</h2>
         <p>
