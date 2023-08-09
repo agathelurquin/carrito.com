@@ -8,22 +8,43 @@ function Carrousel({ type }) {
   const [categoryIndex, setCategoryIndex] = useState(0);
 
   const categories = ["coatsWomen", "pantsWomen", "topsWomen", "accessoriesWomen"];
- 
+  // const filteredData = [];
 
   useEffect(() => {
     setProducts([]);
-    
+    // const selectedCategory = categories[categoryIndex];
     for(const category of categories) {
       axios
       .get(`https://carrito.adaptable.app/products?_page=${counter}&_limit=1&category=${category}`)
       .then((response) => {
         setProducts((currentState => [...currentState, ...response.data]));
+        // filteredData.push([...products])
+        // console.log('okay',filteredData[0][0])
       })
       .catch((e) => console.log(e));
 
     }
     
+    
   }, [categoryIndex, counter]);
+
+  // useEffect(() => {
+  //   setProducts([]);
+  //   const selectedCategory = categories[categoryIndex];
+
+  //   axios
+  //     .get(`https://carrito.adaptable.app/products`)
+  //     .then((response) => {
+          // let fetchedData = response.data
+          // let coatsWomen = fetchedData.filter((product)=> product.category === categories[0])
+          // let pantsWomen = fetchedData.filter((product)=> product.category === categories[1])
+          // let partyOutfitWomen = fetchedData.filter((product)=> product.category === categories[2])
+          // let accessoriesWomen = fetchedData.filter((product)=> product.category === categories[3])
+
+  //       setProducts(response.data);
+  //     })
+  //     .catch((e) => console.log(e));
+  // }, [categoryIndex, counter]);
 
   return (
     <div className="page-container">

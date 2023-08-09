@@ -35,36 +35,55 @@ function Home() {
 
   return (
     <div className="page-container">
-      <Navbar /> 
-      
+
+      <div className="top-page">
+        <Navbar /> 
         <h1 className="home-title">
           <span className="highlight-color italic">Carrito</span>
           <span className="italic"> Shop </span>
         </h1>
+      </div>
 
-        <div className="hero-banner">
+      <div className="hero-banner">
 					<img
 						className="promo"
 						src={bannerImage}
 						alt="banner-no-promo"
 					/>
-				</div>
+			</div>
 
-        <div className="product-display">
-          <div className="product-men">
-            <Carrouselwomen type="Woman" />
-          </div>
-          <div className="product-woman">
-            <Carrouselmen type="Men" />
-          </div>
-        </div>
+      <div className ="product-display">
+       <div className="product-woman">
+          <Carrouselwomen type="Woman" className="product-display"/>
+       </div>
+
+       <div className="product-men">
+          <Carrouselmen type="Men" className="product-display"/>
+       </div>
+      </div>
   
-        <div className="footer">
+      <div className="footer">
           <Footer />
-        </div>
+      </div>
     </div>
 
-  );
+);
 }
 
 export default Home;
+
+
+
+
+
+{/* <div className="container-display"> */}
+{/* </div> */}
+
+{/* <div className="container-display">
+  <div className="product-woman">
+    <Carrouselwomen type="Woman" className="product-display"/>
+  </div>
+  <div className="product-men">
+    <Carrouselmen type="Men" className="product-display"/>
+  </div>
+</div> */}

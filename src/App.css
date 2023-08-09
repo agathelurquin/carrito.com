@@ -41,6 +41,75 @@
   color: #888;
 }
 
+/* own CSS start here  */
+
+.page-container {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.hero-banner img {
+  max-width: 100%;
+  height: auto;
+}
+
+.home-title {
+  font-size: 36px;
+  margin-top: 20px;
+}
+
+.highlight-color {
+  color: #ff6f61;
+}
+
+.italic {
+  font-style: italic;
+}
+
+/* Product Section */
+.product-section {
+  padding: 40px 0;
+  background-color: #f5f5f5;
+}
+
+.product-woman {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.product-men {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.product-carousel {
+  width: 48%; /* Adjust as needed */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container-display{
+  display: flex;
+}
+
+/* .product-display{
+  display: flex;
+  flex-direction: row;
+} */
+
+body {
+  background-color: antiquewhite;
+}
+
+/* Footer */
+/* Define your Footer styles here */
+
 
 
 
