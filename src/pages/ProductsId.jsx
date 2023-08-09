@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import { Carousel } from "react-responsive-carousel";
 
 const API_URL = "https://carrito.adaptable.app/products";
 
@@ -28,10 +28,10 @@ function ProductsId() {
       <article key={product.id}>
         <h1>{product.name}</h1>
         <Carousel width={500}>
-          <img src={`${product.image}`} alt="" />
-          <img src={`${product.secondImages[0]}`} alt="" />
-          <img src={`${product.secondImages[1]}`} alt="" />
-          <img src={`${product.secondImages[2]}`} alt="" />
+          <img src={`https://${product.image}`} alt="" />
+          <img src={`https://${product.image}`} alt="" />
+          <img src={`https://${product.image}`} alt="" />
+          <img src={`https://${product.image}`} alt="" />
         </Carousel>
         <h2>Brand</h2>
         <p>

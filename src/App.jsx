@@ -1,13 +1,12 @@
 import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
-import Men from "./src/pages/Men";
-import Women from "./src/pages/Women";
-import Kid from "./src/pages/Kid";
+import Men from "./pages/Men";
+import Women from "./pages/Women";
 import NavBar from "./Components/Navbar";
-import HomePage from "./src/pages/HomePage";
-import AllProducts from "./src/pages/AllProducts";
-import ProductsId from "./src/pages/ProductsId";
+import HomePage from "./pages/HomePage";
+import AllProducts from "./pages/AllProducts";
+import ProductsId from "./pages/ProductsId";
 
 function App() {
   return (
@@ -15,9 +14,13 @@ function App() {
       <Routes>
         <Route element={<NavBar />} />
         <Route path="/" element={<HomePage />} />
+        {/* Later : Remove the Women + Men + Kid component.
+        Bundle them into one single component.
+        The Route should look something like this: 
+        <Route path="/:category" element....  />
+        */}
         <Route path="/women" element={<Women />} />
         <Route path="/men" element={<Men />} />
-        <Route path="/kids" element={<Kid />} />
         <Route path="/all-products" element={<AllProducts />} />
         <Route path="/product/:id" element={<ProductsId />} />
       </Routes>
