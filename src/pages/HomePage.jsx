@@ -6,7 +6,8 @@ import { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import bannerImage from "./../assets/images/banner.jpeg";
-import Carrousel from "../Components/Carrousel"
+import Carrouselwomen from "../Components/Carrouselwomen"
+import Carrouselmen from "../Components/Carrouselmen"
 // import Carruselwoman from "../Components/Carrousel"
 // import Carruselkids from "../Components/Carruselkids"
 import Footer from "../Components/Footer";
@@ -51,10 +52,10 @@ function Home() {
 
         <div className="product-display">
           <div className="product-men">
-            <Carrousel type="Men" />
+            <Carrouselwomen type="Woman" />
           </div>
           <div className="product-woman">
-            <Carrousel type="Women" />
+            <Carrouselmen type="Men" />
           </div>
         </div>
   
