@@ -10,9 +10,11 @@ function AllProducts() {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    console.log(page);
+    // console.log(page);
     axios
-      .get(`https://carrito.adaptable.app/products?_page=${page}&_limit=12`)
+      .get(
+        `https://carrito.adaptable.app/products?_page=${page}&_limit=12&gender=Women`
+      )
       .then((res) => {
         let currentShoes = shoes ? shoes : [];
         setShoes([...currentShoes, ...res.data]);
@@ -20,25 +22,10 @@ function AllProducts() {
       .catch((e) => console.log(e));
   }, [page]);
 
-  // const handleScroll = () => {
-  //   // console.log("height: ", document.documentElement.scrollHeight);
-  //   // console.log("top: ", document.documentElement.scrollTop);
-  //   // console.log("window: ", window.innerHeight);
-  //   if (
-  //     window.innerHeight + document.documentElement.scrollTop + 1 >=
-  //     document.documentElement.scrollHeight
-  //   ) {
-  //     setPage(page + 1);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  // }, []);
   const fetchData = () => {
     setPage(page + 1);
     axios
-      .get(`https://carrito.adaptable.app/products?_page=${page}&_limit=9`)
+      .get(`https://carrito.adaptable.app/products?_page=${page}&_limit=12`)
       .then((res) => {
         let currentShoes = shoes ? shoes : [];
         setShoes([...currentShoes, ...res.data]);
@@ -56,13 +43,13 @@ function AllProducts() {
           <div>
             <div key={shoe.id} c>
               <Link to={`/product/${shoe.id}`}>
-                <img src={`https://${shoe.image}`} alt="" width={200} />
+                <img src={`${shoe.image}`} alt="" width={200} />
               </Link>
               <h2>{shoe.name}</h2>
               <h3>Colour</h3>
               <p>{shoe.colour}</p>
               <h3>Price</h3>
-              <p>$ {shoe.price}</p>
+              <p>$ {shoe.currentPrice}</p>
             </div>
           </div>
         );
