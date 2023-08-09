@@ -27,7 +27,7 @@ function AllProducts() {
         return (
           <article key={shoe.id}>
             <h1>{shoe.name}</h1>
-            <img src={`https://${shoe.image}`} alt="" width={300} />
+            <img src={`${shoe.image}`} alt="" width={300} />
 
             <h3>Gender</h3>
             <p>{shoe.gender}</p>
