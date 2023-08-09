@@ -15,7 +15,7 @@ function AllProducts() {
   //     .then((response) => {
   //       console.log(
   //         "Heloooooooo",
-  //         response.data.filter((product) => product.category === "shoesMen")
+  //         response.data.filter((product) => product.category === "topsWomen")
   //       );
   //     })
   //     .catch((e) => console.log(e));
