@@ -10,6 +10,7 @@ import Carrousel from "../Components/Carrousel";
 // import Carruselwoman from "../Components/Carrousel"
 // import Carruselkids from "../Components/Carruselkids"
 import Footer from "../Components/Footer";
+import Category from "../Components/Category";
 import "./../App.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -47,6 +48,14 @@ function Home() {
       <div className="all-products">
         <h2>See all collection </h2>
         <Link to="/all-products">Shop All </Link>
+      </div>
+      <div className="men-products">
+        <h2>Men Collection </h2>
+        <Link to={`/cat/men`}>Shop All </Link>
+      </div>
+      <div className="women-products">
+        <h2>Women Collection </h2>
+        <Link to="/cat/women">Shop All </Link>
       </div>
 
       <div className="product-display">
