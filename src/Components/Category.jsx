@@ -22,10 +22,22 @@ function Category() {
         let fetchedCollection = response.data.filter(
           (product) => product.gender === capitalizeCat(category)
         );
-        setCollection([...fetchedCollection]);
+        randomizeCollection(fetchedCollection);
       })
       .catch((e) => console.log(e));
   }, []);
+
+  function randomizeCollection(array) {
+    let collectionCopy = [...array];
+    let length = collectionCopy.length;
+    let randomOrder = [];
+    for (let i = 0; i < length; i++) {
+      let randomId = Math.floor(Math.random() * collectionCopy.length);
+      randomOrder.push(collectionCopy[randomId]);
+      collectionCopy.splice(randomId, 1);
+    }
+    setCollection([...randomOrder]);
+  }
 
   if (!collection) {
     return <div className="loading">Loading...</div>;
