@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Search from "../Components/Search";
+import ScrollUpButton from "../Components/ScrollUpButton";
 
 // const API_URL = "https://carrito.adaptable.app/products";
 

@@ -10,7 +10,7 @@ import ProductsId from "./pages/ProductsId";
 import Category from "./Components/Category";
 import Cart from "./pages/Cart";
 import { useState } from "react";
-
+import ScrollUpButton from "./Components/ScrollUpButton";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -46,6 +46,7 @@ function App() {
           }
         />
       </Routes>
+      <ScrollUpButton />
     </>
   );
 }
