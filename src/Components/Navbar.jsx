@@ -2,7 +2,7 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 import React from 'react'
 import { Outlet } from "react-router-dom";
-import "../../../carrito.com/src/App.css";
+import "../carrito.com/src/App.css";
 
 function NavBar() {
   return (

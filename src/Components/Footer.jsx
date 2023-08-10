@@ -1,6 +1,6 @@
 import React from 'react'
 import "./../App.css";
-import imageFooter from "/Users/josecortez/Desktop/VisualCodeIronHack/Proyect2/carrito.com/src/assets/images/footerimage2.jpg";
+import imageFooter from "./../assets/images/footerimage2.jpg";
 
 function Footer() {
   return (

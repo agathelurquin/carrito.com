@@ -52,17 +52,6 @@ function Carrousel({ type }) {
     <div className="page-container">
       <div className="list-container">
 
-        <h2>
-          <span className="carritostyle">Click to get our men outfit recommendation. </span>
-        </h2>
-      <button className="button"
-        onClick={() => {
-          setCategoryIndex((categoryIndex + 1) % categories.length);
-          setCounter(counter + 1);
-        }}
-      >
-         Generate a Men Style
-      </button>
         <div className="display-products">
           {products.length > 0 ? (
             products.map((product) => (
@@ -85,6 +74,17 @@ function Carrousel({ type }) {
           )}
         </div>
       </div>
+                  <h2>
+                    <span className="carritostyle">Click to get our men outfit recommendation. </span>
+                  </h2>
+                <button className="button"
+                  onClick={() => {
+                    setCategoryIndex((categoryIndex + 1) % categories.length);
+                    setCounter(counter + 1);
+                  }}
+                >
+                  Generate a Men Style
+                </button>
 
       <h1></h1>
     </div>
