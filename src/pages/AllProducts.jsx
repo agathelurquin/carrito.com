@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // const API_URL = "https://carrito.adaptable.app/products";
 
