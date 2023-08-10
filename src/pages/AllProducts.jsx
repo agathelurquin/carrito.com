@@ -36,6 +36,11 @@ function AllProducts({ handleClick }) {
   return (
     <div>
       <h1>All Products</h1>
+      <div>
+        <Link to={`/cart`}>
+          <button>Check out 🛒</button>
+        </Link>
+      </div>
       {shoes.map((shoe) => {
         return (
           <div>
@@ -49,9 +54,6 @@ function AllProducts({ handleClick }) {
               <h3>Price</h3>
               <p>$ {shoe.currentPrice}</p>
               <button onClick={() => handleClick(shoe)}>Add to bag</button>
-              <Link to={`/cart`}>
-                <button>Check out</button>
-              </Link>
             </div>
           </div>
         );
