@@ -7,8 +7,10 @@ import NavBar from "./Components/Navbar";
 import HomePage from "./pages/HomePage";
 import AllProducts from "./pages/AllProducts";
 import ProductsId from "./pages/ProductsId";
+import Category from "./Components/Category";
 import Cart from "./pages/Cart";
 import { useState } from "react";
+
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -23,9 +25,10 @@ function App() {
         <Route path="/" element={<HomePage />} />
         {/* Later : Remove the Women + Men + Kid component.
         Bundle them into one single component.
-        The Route should look something like this: 
+        The Route should look something like this:
         <Route path="/:category" element....  />
         */}
+        <Route path="/cat/:category" element={<Category />}></Route>
         <Route path="/women" element={<Women />} />
         <Route path="/men" element={<Men />} />
         <Route
