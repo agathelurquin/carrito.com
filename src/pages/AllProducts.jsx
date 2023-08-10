@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect} from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -48,13 +48,14 @@ function AllProducts({ handleClick }) {
     <div>
       <h1>All Products</h1>
  
+      <Search searchString={searchString} handleSubmit={setSearchString} />
       <div>
         <Link to={`/cart`}>
           <button>Check out 🛒</button>
         </Link>
-      </div>
-<Search searchString={searchString} handleSubmit={setSearchString} />
-      {shoes.map((shoe) => {
+      </div>  
+
+      {/* {shoes.map((shoe) => { */}
 
 
       
