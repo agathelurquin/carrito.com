@@ -10,6 +10,8 @@ import ProductsId from "./pages/ProductsId";
 import CategoryPage from "./pages/CategoryPage";
 import Cart from "./pages/Cart";
 import { useState } from "react";
+import Purchase from "./pages/PurchaseOrderPage";
+import ScrollUpButton from "./Components/ScrollUpButton";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -56,10 +58,10 @@ function App() {
         The Route should look something like this:
         <Route path="/:category" element....  />
         */}
-        <Route path="/cat/:category" element={<Category />}></Route>
+        <Route path="/cat/:category" element={<CategoryPage />}></Route>
         <Route
           path="/cat/:category"
-          element={<Category handleClick={handleClick} cart={cart} />}
+          element={<CategoryPage handleClick={handleClick} cart={cart} />}
         ></Route>
         <Route path="/women" element={<Women />} />
         <Route path="/men" element={<Men />} />
