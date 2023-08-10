@@ -2,12 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Search from "../Components/Search";
 
 // const API_URL = "https://carrito.adaptable.app/products";
 
 function AllProducts({ handleClick }) {
   const [shoes, setShoes] = useState(null);
   const [page, setPage] = useState(1);
+  const [searchString, setSearchString] = useState("");
 
   useEffect(() => {
     // console.log(page);
@@ -33,10 +35,20 @@ function AllProducts({ handleClick }) {
   if (!shoes) {
     return <div className="loading">Loading...</div>;
   }
+  let collectionToDisplay;
+  if (!searchString) {
+    collectionToDisplay = shoes;
+  } else {
+    collectionToDisplay = shoes.filter((product) =>
+      product.name.toLowerCase().includes(searchString.toLowerCase())
+    );
+  }
   return (
     <div>
       <h1>All Products</h1>
-      {shoes.map((shoe) => {
+
+      <Search searchString={searchString} handleSubmit={setSearchString} />
+      {collectionToDisplay.map((shoe) => {
         return (
           <div>
             <div key={shoe.id}>
