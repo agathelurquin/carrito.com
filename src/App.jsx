@@ -7,8 +7,17 @@ import NavBar from "./Components/Navbar";
 import HomePage from "./pages/HomePage";
 import AllProducts from "./pages/AllProducts";
 import ProductsId from "./pages/ProductsId";
+import Category from "./Components/Category";
+import Cart from "./pages/Cart";
+import { useState } from "react";
+import ScrollUpButton from "./Components/ScrollUpButton";
 
 function App() {
+  const [cart, setCart] = useState([]);
+  const handleClick = (item) => {
+    setCart([...cart, item]);
+  };
+  console.log(cart);
   return (
     <>
       <Routes>
@@ -16,14 +25,28 @@ function App() {
         <Route path="/" element={<HomePage />} />
         {/* Later : Remove the Women + Men + Kid component.
         Bundle them into one single component.
-        The Route should look something like this: 
+        The Route should look something like this:
         <Route path="/:category" element....  />
         */}
+        <Route path="/cat/:category" element={<Category />}></Route>
         <Route path="/women" element={<Women />} />
         <Route path="/men" element={<Men />} />
-        <Route path="/all-products" element={<AllProducts />} />
-        <Route path="/product/:id" element={<ProductsId />} />
+        <Route
+          path="/all-products"
+          element={<AllProducts handleClick={handleClick} />}
+        />
+        <Route
+          path="/product/:id"
+          element={<ProductsId handleClick={handleClick} />}
+        />
+        <Route
+          path="/cart"
+          element={
+            <Cart handleClick={handleClick} cart={cart} setCart={setCart} />
+          }
+        />
       </Routes>
+      <ScrollUpButton />
     </>
   );
 }
@@ -37,3 +60,13 @@ export default App;
 // AGATHE search bar + search algorithm
 // NICO CART CRUD
 // JOSE Category pages
+// const handleClick = (item) => {
+//   const foundProduct = cart.find((product) => product.id === item.id);
+//   if (!foundProduct) {
+//     item.quantity = 1;
+//     setCart([...cart, item]);
+//   } else {
+//     const copy = { ...foundProduct };
+//     copy++;
+//   }
+// };

@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import { Link } from "react-router-dom";
 
 const API_URL = "https://carrito.adaptable.app/products";
 
-function ProductsId() {
+function ProductsId({ handleClick }) {
   const [product, setProduct] = useState(null);
   const { id } = useParams();
 
@@ -18,6 +19,7 @@ function ProductsId() {
       })
       .catch((e) => console.log(e));
   }, []);
+
   if (!product) {
     return <div className="loading">Loading...</div>;
   }
@@ -29,9 +31,9 @@ function ProductsId() {
         <h1>{product.name}</h1>
         <Carousel width={500}>
           <img src={`${product.image}`} alt="" />
-          <img src={`${product.image}`} alt="" />
-          <img src={`${product.image}`} alt="" />
-          <img src={`${product.image}`} alt="" />
+          <img src={`${product.secondImages[0]}`} alt="" />
+          <img src={`${product.secondImages[1]}`} alt="" />
+          <img src={`${product.secondImages[2]}`} alt="" />
         </Carousel>
         <h2>Brand</h2>
         <p>
@@ -52,7 +54,10 @@ function ProductsId() {
           <option value="XL">XL</option>
           <option value="XXL">XXL</option>
         </select>
-        <button>Add to bag</button>
+        <button onClick={() => handleClick(product)}>Add to bag</button>
+        <Link to={`/cart`}>
+          <button>Check out</button>
+        </Link>
       </article>
     </div>
   );
