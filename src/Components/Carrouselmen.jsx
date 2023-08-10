@@ -51,7 +51,7 @@ function Carrousel({ type }) {
   return (
     <div className="page-container">
       <div className="list-container">
-      <h1></h1>
+
         <h2>
           <span className="carritostyle">Click to get our men outfit recommendation. </span>
         </h2>

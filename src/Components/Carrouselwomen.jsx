@@ -54,7 +54,6 @@ function Carrousel({ type }) {
         <h2>
           <span className="carritostyle">Click to get our women outfit recommendation.</span>
         </h2>
-      <h1></h1>
       <button className="button"
         onClick={() => {
           setCategoryIndex((categoryIndex + 1) % categories.length);
