@@ -1,18 +1,19 @@
-// DELETE THE EXISTING "ALL PRODUCTS" IN THIS FILE (WE MOVED IT TO THE ALL PRODUCTS PAGE)
-// START WORKING ON THE HOME PAGE (BANNER - CARROUSEL)
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
+import bannerImage from "./../assets/images/carritobanner.mp4";
 import Carrouselwomen from "../Components/Carrouselwomen"
 import Carrouselmen from "../Components/Carrouselmen"
 import videoHeader from "../assets/images/carritobanner2.mp4"
+// import Carruselwoman from "../Components/Carrousel"
+// import Carruselkids from "../Components/Carruselkids"
 import Footer from "../Components/Footer";
 import Category from "../Components/Category";
 import "./../App.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+// import Carrouselprueba from "../Components/Carrouselprueba";
 
 function Home() {
   const [products, setProducts] = useState();
@@ -59,20 +60,6 @@ function Home() {
        </div>
       </div>
   
-      <div className="links-to-categories">
-      <div className="all-products">
-        <h2>See all collection </h2>
-        <Link to="/all-products">Shop All </Link>
-      </div>
-      <div className="men-products">
-        <h2>Men Collection </h2>
-        <Link to={`/cat/men`}>Shop All </Link>
-      </div>
-      <div className="women-products">
-        <h2>Women Collection </h2>
-        <Link to="/cat/women">Shop All </Link>
-      </div>
-      </div>
 
       <div className="footer">
           <Footer />
@@ -86,3 +73,15 @@ export default Home;
 
 
 
+
+{/* <div className="container-display"> */}
+{/* </div> */}
+
+{/* <div className="container-display">
+  <div className="product-woman">
+    <Carrouselwomen type="Woman" className="product-display"/>
+  </div>
+  <div className="product-men">
+    <Carrouselmen type="Men" className="product-display"/>
+  </div>
+</div> */}
