@@ -7,7 +7,7 @@ import NavBar from "./Components/Navbar";
 import HomePage from "./pages/HomePage";
 import AllProducts from "./pages/AllProducts";
 import ProductsId from "./pages/ProductsId";
-import Category from "./Components/Category";
+import CategoryPage from "./pages/CategoryPage";
 import Cart from "./pages/Cart";
 import { useState } from "react";
 import ScrollUpButton from "./Components/ScrollUpButton";
@@ -28,7 +28,7 @@ function App() {
         The Route should look something like this:
         <Route path="/:category" element....  />
         */}
-        <Route path="/cat/:category" element={<Category />}></Route>
+        <Route path="/cat/:category" element={<CategoryPage />}></Route>
         <Route path="/women" element={<Women />} />
         <Route path="/men" element={<Men />} />
         <Route

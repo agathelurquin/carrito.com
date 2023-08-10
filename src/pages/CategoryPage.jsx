@@ -3,17 +3,26 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Filter from "../Components/Filter";
 
 // const API_URL = "https://carrito.adaptable.app/products"
 
-function Category() {
-  const [collection, setCollection] = useState(null);
+function CategoryPage() {
+  const [collection, setCollection] = useState([]);
   const { category } = useParams();
   const [page, setPage] = useState(1);
   const [brand, setBrand] = useState("-1");
   const [productType, setProductType] = useState("");
 
-  const brands = ["asos", "adidas", "nike", "pull&bear", "puma", "47 Brand"];
+  const brands = [
+    "asos",
+    "Barbour International",
+    "Vans",
+    "pull&bear",
+    "puma",
+    "47 Brand",
+    "Barbour",
+  ];
 
   function capitalizeCat(cat) {
     const firstLetter = cat.charAt(0);
@@ -22,26 +31,29 @@ function Category() {
     return `${firstLetterCap}${remainingLetters}`;
   }
   useEffect(() => {
-    console.log(page);
+    if (page === 1) return;
     const options = {
       _page: page,
       _sort: "name",
       gender: capitalizeCat(category),
     };
+    console.log("THERE");
 
     if (brand !== "-1") {
       options.brand = brand;
     }
-
     axios
       .get(`https://carrito.adaptable.app/products`, {
         params: options,
       })
       .then((response) => {
-        let currentCollection = collection ? collection : [];
+        // let currentCollection = collection ? collection : [];
         let fetchedCollection = response.data;
 
-        setCollection([...currentCollection, ...fetchedCollection]);
+        setCollection((currentCollection) => [
+          ...currentCollection,
+          ...fetchedCollection,
+        ]);
       })
       .catch((e) => console.log(e));
   }, [page]);
@@ -57,49 +69,17 @@ function Category() {
     if (brand !== "-1") {
       options.brand = brand;
     }
-
+    console.log("HERE");
     axios
       .get(`https://carrito.adaptable.app/products`, {
         params: options,
       })
       .then((response) => {
-        let currentCollection = collection ? collection : [];
         let fetchedCollection = response.data;
-        console.log(currentCollection, fetchedCollection);
         setCollection(fetchedCollection);
       })
       .catch((e) => console.log(e));
   }, [brand]);
-
-  // BECAUSE WE SET THE LIMIT TO 12, WE DON'T HAVE ACCESS TO THE WHOLE DATA BASE
-  // function fetchData() {
-  //   axios
-  //     .get(
-  //       `https://carrito.adaptable.app/products?_page=${page}&gender=${capitalizeCat(
-  //         category
-  //       )}`
-  //     )
-  //     .then((response) => {
-  //       let currentCollection = collection ? collection : [];
-  //       let fetchedCollection = response.data;
-  //       randomizeCollection([...currentCollection, ...fetchedCollection]);
-  //     })
-  //     .catch((e) => console.log(e));
-  // }
-
-  // function randomizeCollection(array) {
-  //   let collectionCopy = [...array];
-  //   let length = collectionCopy.length;
-
-  //   let randomOrder = [];
-  //   for (let i = 0; i < length; i++) {
-  //     let randomId = Math.floor(Math.random() * collectionCopy.length);
-  //     randomOrder.push(collectionCopy[randomId]);
-  //     collectionCopy.splice(randomId, 1);
-  //   }
-  //   console.log("Random order: ", randomOrder, array);
-  //   return setCollection([...randomOrder]);
-  // }
 
   if (!collection) {
     return <div className="loading">Loading...</div>;
@@ -108,12 +88,12 @@ function Category() {
   return (
     <div className="collection">
       <h1>{category}</h1>
-      <div className="filter">
+      {/* <div className="filter">
         <select
           name="brand"
           id="brand"
           value={brand}
-          onChange={(event) => setBrand(event.target.value)}
+          // onChange={(event) => setBrand(event.target.value)}
         >
           <option value="-1" disabled>
             Please select a brand
@@ -122,7 +102,8 @@ function Category() {
             return <option value={brand}>{brand}</option>;
           })}
         </select>
-      </div>
+      </div> */}
+      <Filter filter={brand} filterOptions={brands} setFilter={setBrand} />
       {collection.map((product) => {
         return (
           <div key={product.id}>
@@ -150,4 +131,8 @@ function Category() {
   );
 }
 
-export default Category;
+export default CategoryPage;
+
+// setOptions((currentState) => {
+//   return { ...currentState, [e.target.name]: e.target.value };
+// });
