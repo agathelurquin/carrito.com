@@ -7,10 +7,9 @@ import NavBar from "./Components/Navbar";
 import HomePage from "./pages/HomePage";
 import AllProducts from "./pages/AllProducts";
 import ProductsId from "./pages/ProductsId";
-import Category from "./Components/Category";
+import CategoryPage from "./pages/CategoryPage";
 import Cart from "./pages/Cart";
 import { useState } from "react";
-import Purchase from "./pages/PurchaseOrderPage";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -57,6 +56,7 @@ function App() {
         The Route should look something like this:
         <Route path="/:category" element....  />
         */}
+        <Route path="/cat/:category" element={<Category />}></Route>
         <Route
           path="/cat/:category"
           element={<Category handleClick={handleClick} cart={cart} />}
@@ -82,6 +82,7 @@ function App() {
           element={<Purchase setCart={setCart} />}
         />
       </Routes>
+      <ScrollUpButton />
     </>
   );
 }
