@@ -1,25 +1,47 @@
 import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
-import Men from "./src/pages/Men";
-import Women from "./src/pages/Women";
-import Kid from "./src/pages/Kid";
+import Men from "./pages/Men";
+import Women from "./pages/Women";
 import NavBar from "./Components/Navbar";
-import HomePage from "./src/pages/HomePage";
-import AllProducts from "./src/pages/AllProducts";
-import ProductsId from "./src/pages/ProductsId";
+import HomePage from "./pages/HomePage";
+import AllProducts from "./pages/AllProducts";
+import ProductsId from "./pages/ProductsId";
+import Cart from "./pages/Cart";
+import { useState } from "react";
 
 function App() {
+  const [cart, setCart] = useState([]);
+  const handleClick = (item) => {
+    setCart([...cart, item]);
+  };
+  console.log(cart);
   return (
     <>
       <Routes>
         <Route element={<NavBar />} />
         <Route path="/" element={<HomePage />} />
+        {/* Later : Remove the Women + Men + Kid component.
+        Bundle them into one single component.
+        The Route should look something like this: 
+        <Route path="/:category" element....  />
+        */}
         <Route path="/women" element={<Women />} />
         <Route path="/men" element={<Men />} />
-        <Route path="/kids" element={<Kid />} />
-        <Route path="/all-products" element={<AllProducts />} />
-        <Route path="/product/:id" element={<ProductsId />} />
+        <Route
+          path="/all-products"
+          element={<AllProducts handleClick={handleClick} />}
+        />
+        <Route
+          path="/product/:id"
+          element={<ProductsId handleClick={handleClick} />}
+        />
+        <Route
+          path="/cart"
+          element={
+            <Cart handleClick={handleClick} cart={cart} setCart={setCart} />
+          }
+        />
       </Routes>
     </>
   );
@@ -34,3 +56,13 @@ export default App;
 // AGATHE search bar + search algorithm
 // NICO CART CRUD
 // JOSE Category pages
+// const handleClick = (item) => {
+//   const foundProduct = cart.find((product) => product.id === item.id);
+//   if (!foundProduct) {
+//     item.quantity = 1;
+//     setCart([...cart, item]);
+//   } else {
+//     const copy = { ...foundProduct };
+//     copy++;
+//   }
+// };
