@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import bannerImage from "./../assets/images/carritobanner.mp4";
 import Carrouselwomen from "../Components/Carrouselwomen"
 import Carrouselmen from "../Components/Carrouselmen"
 import videoHeader from "../assets/images/carritobanner2.mp4"
