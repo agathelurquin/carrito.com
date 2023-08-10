@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const API_URL = "https://carrito.adaptable.app/products";
 
-function ProductsId({ handleClick }) {
+function ProductsId({ handleClick, cart }) {
   const [product, setProduct] = useState(null);
   const { id } = useParams();
 
@@ -56,7 +56,7 @@ function ProductsId({ handleClick }) {
         </select>
         <button onClick={() => handleClick(product)}>Add to bag</button>
         <Link to={`/cart`}>
-          <button>Check out</button>
+          <button>Check out 🛒 ({cart.length})</button>
         </Link>
       </article>
     </div>

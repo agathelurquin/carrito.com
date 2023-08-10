@@ -6,7 +6,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 // const API_URL = "https://carrito.adaptable.app/products";
 
-function Category() {
+function Category({ handleClick, cart }) {
   const [collection, setCollection] = useState(null);
   const { category } = useParams();
   const [page, setPage] = useState(1);
@@ -76,6 +76,11 @@ function Category() {
   return (
     <div className="collection">
       <h1>{category}</h1>
+      <div>
+        <Link to={`/cart`}>
+          <button>Check out 🛒 ({cart.length})</button>
+        </Link>
+      </div>
       {collection.map((product) => {
         return (
           <div key={product.id}>
@@ -88,6 +93,7 @@ function Category() {
               <p>{product.colour}</p>
               <h3>Price</h3>
               <p>$ {product.currentPrice}</p>
+              <button onClick={() => handleClick(product)}>Add to bag</button>
             </div>
           </div>
         );
