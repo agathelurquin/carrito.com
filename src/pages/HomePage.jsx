@@ -5,9 +5,10 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import bannerImage from "./../assets/images/banner.jpeg";
+import bannerImage from "./../assets/images/carritobanner.mp4";
 import Carrouselwomen from "../Components/Carrouselwomen"
 import Carrouselmen from "../Components/Carrouselmen"
+import videoHeader from "../assets/images/carritobanner2.mp4"
 // import Carruselwoman from "../Components/Carrousel"
 // import Carruselkids from "../Components/Carruselkids"
 import Footer from "../Components/Footer";
@@ -36,18 +37,20 @@ function Home() {
   return (
     <div className="page-container">
 
+
       <div className="top-page">
-        <Navbar /> 
-        <h1 className="home-title">
+        <Navbar />   
+        {/* <h1 className="home-title">
           <span className="highlight-color italic">Carrito</span>
           <span className="italic"> Shop </span>
-        </h1>
+        </h1> */}
       </div>
-
       <div className="hero-banner">
-					<img
+					<video autoPlay controls loop
+          position="absolute"
+           width="800"  height="360"
 						className="promo"
-						src={bannerImage}
+						src={videoHeader}
 						alt="banner-no-promo"
 					/>
 			</div>
@@ -62,11 +65,11 @@ function Home() {
        </div>
       </div>
   
+
       <div className="footer">
           <Footer />
       </div>
     </div>
-
 );
 }
 

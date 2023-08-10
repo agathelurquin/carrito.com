@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+// import "./App.css"
+import "../../../carrito.com/src/App.css";
 
 function Carrousel({ type }) {
   const [products, setProducts] = useState([]);
@@ -50,9 +52,17 @@ function Carrousel({ type }) {
     <div className="page-container">
       <div className="list-container">
         <h2>
-          <span className="carritostyle">{type} Section</span>
+          <span className="carritostyle">Click to get our women outfit recommendation.</span>
         </h2>
-
+      <h1></h1>
+      <button className="button"
+        onClick={() => {
+          setCategoryIndex((categoryIndex + 1) % categories.length);
+          setCounter(counter + 1);
+        }}
+      >
+         Generate Female Style
+      </button>
         <div className="display-products">
           {products.length > 0 ? (
             products.map((product) => (
@@ -76,14 +86,8 @@ function Carrousel({ type }) {
         </div>
       </div>
 
-      <button
-        onClick={() => {
-          setCategoryIndex((categoryIndex + 1) % categories.length);
-          setCounter(counter + 1);
-        }}
-      >
-         Generate Random Style
-      </button>
+      <h1></h1>
+      <p></p>
     </div>
   );
 }
