@@ -7,7 +7,7 @@ function Footer() {
     <>
     <div className="footer">
       <div className="image-footer">
-      <a href="https://carrito-shop.netlify.app/">
+      <a href='#'>
           <img src={imageFooter}></img>
       </a>
       </div>
