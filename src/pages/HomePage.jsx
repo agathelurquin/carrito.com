@@ -9,7 +9,6 @@ import videoHeader from "../assets/images/carritobanner2.mp4"
 // import Carruselwoman from "../Components/Carrousel"
 // import Carruselkids from "../Components/Carruselkids"
 import Footer from "../Components/Footer";
-import Category from "../Components/Category";
 import "./../App.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
