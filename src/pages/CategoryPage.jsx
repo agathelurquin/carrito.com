@@ -12,7 +12,31 @@ function CategoryPage() {
   const { category } = useParams();
   const [page, setPage] = useState(1);
   const [brand, setBrand] = useState("-1");
+  const [brandSelection, setBrandSelection] = useState([]);
+
   const [productType, setProductType] = useState("");
+
+  let brandOptions = [];
+
+  useEffect(() => {
+    axios
+      .get(`https://carrito.adaptable.app/products`)
+      .then((response) => {
+        let allBrands = response.data.map((item) => item.brand);
+        console.log("beggining", brandOptions);
+
+        allBrands.forEach((brand) => {
+          if (brandSelection.indexOf(brand) === -1) {
+            brandSelection.push(brand);
+          }
+        });
+        console.log("RESULT", brandSelection);
+        return brandSelection;
+      })
+      .catch((e) => console.log(e));
+  }, []);
+
+  console.log("AVANT REACT, APRES LE FETCH", brandSelection);
 
   const brands = [
     "asos",
@@ -37,7 +61,6 @@ function CategoryPage() {
       _sort: "name",
       gender: capitalizeCat(category),
     };
-    console.log("THERE");
 
     if (brand !== "-1") {
       options.brand = brand;
@@ -69,7 +92,6 @@ function CategoryPage() {
     if (brand !== "-1") {
       options.brand = brand;
     }
-    console.log("HERE");
     axios
       .get(`https://carrito.adaptable.app/products`, {
         params: options,
@@ -103,7 +125,11 @@ function CategoryPage() {
           })}
         </select>
       </div> */}
-      <Filter filter={brand} filterOptions={brands} setFilter={setBrand} />
+      <Filter
+        filter={brand}
+        filterOptions={brandSelection}
+        setFilter={setBrand}
+      />
       {collection.map((product) => {
         return (
           <div key={product.id}>
