@@ -1,6 +1,3 @@
-// DELETE THE EXISTING "ALL PRODUCTS" IN THIS FILE (WE MOVED IT TO THE ALL PRODUCTS PAGE)
-// START WORKING ON THE HOME PAGE (BANNER - CARROUSEL)
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -36,7 +33,6 @@ function Home() {
   return (
     <div className="page-container">
       <Navbar />
-
       <h1 className="home-title">
         <span className="highlight-color italic">Carrito</span>
         <span className="italic"> Shop </span>
@@ -57,7 +53,6 @@ function Home() {
         <h2>Women Collection </h2>
         <Link to="/cat/women">Shop All </Link>
       </div>
-
       <div className="product-display">
         <div className="product-men">
           <Carrousel type="Men" />

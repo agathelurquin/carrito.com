@@ -5,16 +5,14 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 // const API_URL = "https://carrito.adaptable.app/products";
 
-function AllProducts() {
+function AllProducts({ handleClick }) {
   const [shoes, setShoes] = useState(null);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
     // console.log(page);
     axios
-      .get(
-        `https://carrito.adaptable.app/products?_page=${page}&_limit=12&gender=Women`
-      )
+      .get(`https://carrito.adaptable.app/products?_page=${page}&_limit=12`)
       .then((res) => {
         let currentShoes = shoes ? shoes : [];
         setShoes([...currentShoes, ...res.data]);
@@ -50,6 +48,10 @@ function AllProducts() {
               <p>{shoe.colour}</p>
               <h3>Price</h3>
               <p>$ {shoe.currentPrice}</p>
+              <button onClick={() => handleClick(shoe)}>Add to bag</button>
+              <Link to={`/cart`}>
+                <button>Check out</button>
+              </Link>
             </div>
           </div>
         );
