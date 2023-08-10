@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import bannerImage from "./../assets/images/banner.jpeg";
 import Carrousel from "../Components/Carrousel";
 // import Carruselwoman from "../Components/Carrousel"
 // import Carruselkids from "../Components/Carruselkids"
 import Footer from "../Components/Footer";
+import Category from "../Components/Category";
 import "./../App.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -32,7 +33,6 @@ function Home() {
   return (
     <div className="page-container">
       <Navbar />
-
       <h1 className="home-title">
         <span className="highlight-color italic">Carrito</span>
         <span className="italic"> Shop </span>
@@ -41,7 +41,18 @@ function Home() {
       <div className="hero-banner">
         <img className="promo" src={bannerImage} alt="banner-no-promo" />
       </div>
-
+      <div className="all-products">
+        <h2>See all collection </h2>
+        <Link to="/all-products">Shop All </Link>
+      </div>
+      <div className="men-products">
+        <h2>Men Collection </h2>
+        <Link to={`/cat/men`}>Shop All </Link>
+      </div>
+      <div className="women-products">
+        <h2>Women Collection </h2>
+        <Link to="/cat/women">Shop All </Link>
+      </div>
       <div className="product-display">
         <div className="product-men">
           <Carrousel type="Men" />

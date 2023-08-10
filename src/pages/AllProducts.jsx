@@ -39,7 +39,7 @@ function AllProducts({ handleClick }) {
       {shoes.map((shoe) => {
         return (
           <div>
-            <div key={shoe.id} c>
+            <div key={shoe.id}>
               <Link to={`/product/${shoe.id}`}>
                 <img src={`${shoe.image}`} alt="" width={200} />
               </Link>
