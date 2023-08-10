@@ -46,9 +46,19 @@ function AllProducts({ handleClick }) {
   return (
     <div>
       <h1>All Products</h1>
+ 
+      <div>
+        <Link to={`/cart`}>
+          <button>Check out 🛒</button>
+        </Link>
+      </div>
+<Search searchString={searchString} handleSubmit={setSearchString} />
+      {shoes.map((shoe) => {
 
-      <Search searchString={searchString} handleSubmit={setSearchString} />
+
+      
       {collectionToDisplay.map((shoe) => {
+ 
         return (
           <div>
             <div key={shoe.id}>
@@ -61,9 +71,6 @@ function AllProducts({ handleClick }) {
               <h3>Price</h3>
               <p>$ {shoe.currentPrice}</p>
               <button onClick={() => handleClick(shoe)}>Add to bag</button>
-              <Link to={`/cart`}>
-                <button>Check out</button>
-              </Link>
             </div>
           </div>
         );
