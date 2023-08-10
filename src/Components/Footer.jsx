@@ -7,7 +7,7 @@ function Footer() {
     <>
     <div className="footer">
       <div className="image-footer">
-      <a href='#'>
+      <a href='/all-products'>
           <img src={imageFooter}></img>
       </a>
       </div>

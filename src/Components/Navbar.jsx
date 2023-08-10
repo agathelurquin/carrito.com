@@ -9,8 +9,9 @@ function NavBar() {
     <>
       <nav>
          <div className="links-to-pages">
-						<Link to="/women" className="nav-link">WOMEN</Link>
-						<Link to="/men" className="nav-link">MEN</Link>	
+						<Link to="/cat/women" className="nav-link">WOMEN</Link>
+						<Link to="/cat/men" className="nav-link">MEN</Link>	
+            
 				</div>
 			</nav> 
     </>
