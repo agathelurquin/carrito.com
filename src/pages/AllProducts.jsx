@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Search from "../Components/Search";
 import ScrollUpButton from "../Components/ScrollUpButton";
+import CartCountBadge from "../Components/CartCountBadge";
 
 // const API_URL = "https://carrito.adaptable.app/products";
 
@@ -56,7 +57,7 @@ function AllProducts({ handleClick, cart }) {
       <div>
         <Link to={`/cart`}>
           <button>
-            <CartIcon />
+            <CartCountBadge number={cart.length} />
           </button>
         </Link>
       </div>

@@ -5,7 +5,7 @@ function CartIcon() {
   return (
     <FontAwesomeIcon
       icon={faCartShopping}
-      style={{ color: "#febb40" }}
+      style={{ color: "#febb40", fontSize: "30px" }}
       className="cart-icon"
     />
   );

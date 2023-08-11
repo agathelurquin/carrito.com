@@ -225,13 +225,3 @@ h3 {
   width: 100%;
   border: 3px solid white;
 }
-
-/* CSS AGATHE  */
-
-/* Cart */
-
-.item-count {
-  border-radius: 50%;
-  display: block;
-  background-color: #ff6f61;
-}

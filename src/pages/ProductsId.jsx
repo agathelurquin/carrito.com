@@ -59,7 +59,6 @@ function ProductsId({ handleClick, cart }) {
         <Link to={`/cart`}>
           <button>
             <CartCountBadge number={cart.length} />
-            <span className="item-count">{cart.length}</span>
           </button>
         </Link>
       </article>

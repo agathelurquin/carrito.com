@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
-import CartIcon from "./CartIcon";
+import CartCountBadge from "./CartCountBadge";
 
 // const API_URL = "https://carrito.adaptable.app/products";
 
@@ -80,8 +80,7 @@ function Category({ handleClick, cart }) {
       <div>
         <Link to={`/cart`}>
           <button>
-            <CartIcon />
-            <span className="item-count">({cart.length})</span>
+            <CartCountBadge number={cart.length} />
           </button>
         </Link>
       </div>
