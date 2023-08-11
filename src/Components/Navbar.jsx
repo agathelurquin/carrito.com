@@ -11,6 +11,7 @@ function NavBar() {
     <>
       <nav>
         <div className="links-to-pages">
+
           <Link to="/" className="nav-link">
             Home
           </Link>
@@ -24,6 +25,7 @@ function NavBar() {
             Men
           </Link>
           <Search></Search>
+
         </div>
       </nav>
     </>

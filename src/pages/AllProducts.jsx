@@ -60,6 +60,24 @@ function AllProducts({ handleClick, cart }) {
       </div>
 
       {/* {shoes.map((shoe) => { */}
+      <div className="card">
+        {collectionToDisplay.map((shoe) => {
+          return (
+            <div className="itemCard">
+              <div className="divWithAll" key={shoe.id}>
+                <Link to={`/product/${shoe.id}`}>
+                  <img
+                    className="productPicture"
+                    src={`${shoe.image}`}
+                    alt=""
+                    width={200}
+                  />
+                </Link>
+                <div className="cardDetail">
+                  <h2 className="titleName">{shoe.name}</h2>
+                  <div className="priceAndColor">
+                    <h3 className="productDetail">Colour: {shoe.colour}</h3>
+
 
       {shoes.map((shoe) => {
 
@@ -75,10 +93,11 @@ function AllProducts({ handleClick, cart }) {
               <h3>Price</h3>
               <p>$ {shoe.currentPrice}</p>
               <button onClick={() => handleClick(shoe)}>Add to bag</button>
+
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
       <InfiniteScroll
         dataLength={shoes.length}
         data
