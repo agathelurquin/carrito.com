@@ -6,6 +6,7 @@ import Search from "./Search";
 import logoCarrito from "./../assets/images/carritooficial.jpg"
 import Cart from "../pages/Cart"
 import shoppingCard from "./../assets/images/shoppingcard.jpeg"
+import CartCountBadge from "./CartCountBadge";
 
 import "./../App.css";
 
@@ -19,7 +20,7 @@ function NavBar() {
 
 
           <Link to="/" className="nav-link">
-            Welcome
+            Home
           </Link>
           <Link to="/cat/women" className="nav-link">
             Women
@@ -29,6 +30,9 @@ function NavBar() {
           </Link>
           <Link to="/all-products" className="nav-link">
             All Products
+          </Link>
+          <Link to="/cart" className="nav-link">
+          <CartCountBadge/>
           </Link>
           <Search></Search>
 
