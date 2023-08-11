@@ -62,7 +62,7 @@ function Carrousel({ type }) {
                   </div>
                   <div className="card-content">
                     <p className="brand-name">{product.brand}</p>
-                    <p className="price">{product.currentPrice}€</p>
+                    <p className="price">{product.currentPrice} €</p>
                   </div>
                 </Link>
               </div>
@@ -75,7 +75,7 @@ function Carrousel({ type }) {
       </div>
 
         <h2>
-          <span className="carritostyle">Click to get our women outfit recommendation.</span>
+          <span className="carritostyle">Click to get a women outfit.</span>
         </h2>
       <button className="button"
         onClick={() => {
@@ -83,7 +83,7 @@ function Carrousel({ type }) {
           setCounter(counter + 1);
         }}
       >
-         Generate Female Style
+         Get style
       </button>
       <h1></h1>
       <p></p>
