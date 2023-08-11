@@ -70,8 +70,12 @@ p {
 }
 
 .titleName {
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
   font-size: 1rem !important;
   text-align: center;
+  width: 20vw;
 }
 
 .productPicture {
@@ -107,23 +111,37 @@ p {
 
 .cartSingleItem {
   display: flex;
-  width: 40vw;
+  /* max-width: 40vw; */
   align-items: center;
   border: 1px solid gray;
   border-radius: 1rem;
+  margin: 1rem;
 }
 .buttonCart {
   display: flex;
+  align-self: center;
+}
+
+.deleteButton {
+  margin: 0 1rem;
+}
+.productQuantity {
+  display: block;
+  font-size: 1rem;
+  align-self: center;
+  padding: 0 0.5rem;
 }
 .nameAndQuantity {
   width: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0 1rem;
 }
 .priceCart {
   display: flex;
   justify-content: center;
+  padding: 0 1rem;
 }
 
 .cartProductPicture {
