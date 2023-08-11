@@ -26,9 +26,10 @@ function Footer() {
         <address>📍 Paris 
         </address>
       </div>
-      <h3></h3>
+      {/* <h3></h3>
+      <h3></h3> */}
       <div className="footerfour">
-        <h1> ©️ Developers: Agathe, Nicolas & Jose  </h1>
+        <p> ©️ Developers: Agathe, Nicolas & Jose  </p>
       </div>
       {/* <h3>_</h3> */}
       <div>
