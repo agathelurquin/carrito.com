@@ -1,8 +1,6 @@
 import "./App.css";
 import "./detailsProduct.css";
 import { Routes, Route } from "react-router-dom";
-import Men from "./pages/Men";
-import Women from "./pages/Women";
 import NavBar from "./Components/Navbar";
 import HomePage from "./pages/HomePage";
 import AllProducts from "./pages/AllProducts";
@@ -15,6 +13,7 @@ import ScrollUpButton from "./Components/ScrollUpButton";
 
 function App() {
   const [cart, setCart] = useState([]);
+
   // useState(item
   // quantity: 0;
   // itemInfo; item}
