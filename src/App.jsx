@@ -1,5 +1,5 @@
 import "./App.css";
-
+import "./detailsProduct.css";
 import { Routes, Route } from "react-router-dom";
 import Men from "./pages/Men";
 import Women from "./pages/Women";

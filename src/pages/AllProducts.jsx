@@ -54,24 +54,35 @@ function AllProducts({ handleClick, cart }) {
       </Link>
 
       {/* {shoes.map((shoe) => { */}
+      <div className="card">
+        {collectionToDisplay.map((shoe) => {
+          return (
+            <div className="itemCard">
+              <div className="divWithAll" key={shoe.id}>
+                <Link to={`/product/${shoe.id}`}>
+                  <img
+                    className="productPicture"
+                    src={`${shoe.image}`}
+                    alt=""
+                    width={200}
+                  />
+                </Link>
+                <div className="cardDetail">
+                  <h2 className="titleName">{shoe.name}</h2>
+                  <div className="priceAndColor">
+                    <h3 className="productDetail">Colour: {shoe.colour}</h3>
 
-      {collectionToDisplay.map((shoe) => {
-        return (
-          <div>
-            <div key={shoe.id}>
-              <Link to={`/product/${shoe.id}`}>
-                <img src={`${shoe.image}`} alt="" width={200} />
-              </Link>
-              <h2>{shoe.name}</h2>
-              <h3>Colour</h3>
-              <p>{shoe.colour}</p>
-              <h3>Price</h3>
-              <p>$ {shoe.currentPrice}</p>
-              <button onClick={() => handleClick(shoe)}>Add to bag</button>
+                    <p>$ {shoe.currentPrice}</p>
+                  </div>
+                </div>
+                <button className="buttonAll" onClick={() => handleClick(shoe)}>
+                  Add to bag
+                </button>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
       <InfiniteScroll
         dataLength={shoes.length}
         data
