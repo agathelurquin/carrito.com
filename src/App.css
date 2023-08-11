@@ -129,7 +129,12 @@
 }
 
 .links-to-pages {
-  background-color:white;
+
+
+
+  background-color: rgb(255, 255, 255);
+
+
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -222,6 +227,9 @@ p {
 
 body {
   /* display: flex; */
+
+  background-color: rgb(255, 255, 255);
+
   justify-content: flex-start;
 }
 

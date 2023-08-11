@@ -14,7 +14,10 @@ function NavBar() {
     <>
       <nav>
         <div className="links-to-pages">
+
           <img src={logoCarrito} alt="logo-carrito"></img>
+
+
           <Link to="/" className="nav-link">
             Welcome
           </Link>
@@ -28,9 +31,13 @@ function NavBar() {
             All Products
           </Link>
           <Search></Search>
+
           {/* <a href="/Cart">
             <img className="shopping-car" src={shoppingCard} alt="logo-shooping"></img>
           </a> */}
+
+
+
         </div>
       </nav>
     </>

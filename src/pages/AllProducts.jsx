@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Search from "../Components/Search";
 import ScrollUpButton from "../Components/ScrollUpButton";
-
+import CartCountBadge from "../Components/CartCountBadge";
 // const API_URL = "https://carrito.adaptable.app/products";
 
 function AllProducts({ handleClick, cart }) {
@@ -55,30 +55,43 @@ function AllProducts({ handleClick, cart }) {
       <Search searchString={searchString} handleSubmit={setSearchString} />
       <div>
         <Link to={`/cart`}>
-          <button>Check out 🛒</button>
+          <button>
+            <CartCountBadge number={cart.length} />
+          </button>
         </Link>
       </div>
 
       {/* {shoes.map((shoe) => { */}
-
-      {shoes.map((shoe) => {
-
-        return (
-          <div>
-            <div key={shoe.id}>
-              <Link to={`/product/${shoe.id}`}>
-                <img src={`${shoe.image}`} alt="" width={200} />
-              </Link>
-              <h2>{shoe.name}</h2>
-              <h3>Colour</h3>
-              <p>{shoe.colour}</p>
-              <h3>Price</h3>
-              <p>$ {shoe.currentPrice}</p>
-              <button onClick={() => handleClick(shoe)}>Add to bag</button>
+      <div className="card">
+        {shoes.map((shoe) => {
+          return (
+            <div className="itemCard">
+              <div className="divWithAll" key={shoe.id}>
+                <Link to={`/product/${shoe.id}`}>
+                  <img
+                    className="productPicture"
+                    src={`${shoe.image}`}
+                    alt=""
+                    width={200}
+                  />
+                </Link>
+                <div className="cardDetail">
+                  <h2 className="titleName">{shoe.name}</h2>
+                  <div className="priceAndColor">
+                    <h3 className="productDetail">Colour: {shoe.colour}</h3>
+                  </div>
+                </div>
+                <h3>Price</h3>
+                <p>$ {shoe.currentPrice}</p>
+                <button className="buttonAll" onClick={() => handleClick(shoe)}>
+                  Add to bag
+                </button>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
+
       <InfiniteScroll
         dataLength={shoes.length}
         data

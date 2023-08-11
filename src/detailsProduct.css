@@ -1,0 +1,131 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+h1 {
+  color: #000000;
+  font-size: 3rem !important;
+}
+h2 {
+  color: #000000;
+  font-size: 1.5rem !important;
+  font-family: "Poppins", sans-serif !important;
+  font-weight: bolder;
+}
+p {
+  color: #717070;
+}
+
+/* single product page  */
+
+.productDetails {
+  display: flex;
+  flex-direction: row;
+}
+.selectSize {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.size {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+.button {
+  background-color: #fd4555;
+  border-radius: 1rem;
+  border: 1px none;
+}
+.button:hover {
+  background-color: #fd4554de;
+}
+.carousel {
+  width: 50vw;
+  display: flex;
+  justify-content: flex-start;
+}
+.details {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  padding-right: 5rem;
+}
+
+/* all product page  */
+
+.card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.itemCard {
+  width: 20vw;
+  align-content: space-around !important;
+  margin-bottom: 2rem;
+}
+
+.titleName {
+  font-size: 1rem !important;
+  text-align: center;
+}
+
+.productPicture {
+  border-radius: 1rem;
+}
+
+.productDetail {
+  font-size: 1rem !important;
+  margin: 0;
+}
+.priceAndColor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cardDetail {
+  align-content: space-around;
+}
+.buttonAll {
+  background-color: #fd4555;
+  border-radius: 1rem;
+  border: 1px none;
+  color: white;
+}
+.buttonAll:hover {
+  background-color: #fd4554de;
+}
+
+/* cart style */
+.moreOrLess {
+  display: flex;
+}
+
+.cartSingleItem {
+  display: flex;
+  width: 40vw;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 1rem;
+}
+.buttonCart {
+  display: flex;
+}
+.nameAndQuantity {
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.priceCart {
+  display: flex;
+  justify-content: center;
+}
+
+.cartProductPicture {
+  border-radius: 1rem 0rem 0rem 1rem;
+}
