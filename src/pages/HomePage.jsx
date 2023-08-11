@@ -31,6 +31,7 @@ function Home() {
   }
 
   return (
+  <div className="homebackground">
     <div className="page-container">
 
 
@@ -63,6 +64,7 @@ function Home() {
           <Footer />
       </div>
     </div>
+  </div>
 );
 }
 

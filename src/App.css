@@ -132,9 +132,7 @@
 
 
 
-  background-color: rgb(255, 255, 255);
-
-
+  background-color: white;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -225,14 +223,6 @@ p {
 
 }
 
-body {
-  /* display: flex; */
-
-  background-color: rgb(255, 255, 255);
-
-  justify-content: flex-start;
-}
-
 .button {
   border: 1px solid black;
   background-color: black;
@@ -308,4 +298,10 @@ h1{
   color:black;
   font-weight: bold;
   font-size: 18px;
+}
+
+.homebackground{
+  background-color: black;
+  width: 100%;
+  height: 100vh;
 }
