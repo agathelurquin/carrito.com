@@ -37,55 +37,53 @@ function Cart({ cart, setCart }) {
           Finish and pay
         </button>
       </Link>
-      <div className="cart">
-        {cart.map((product) => {
-          return (
-            <div className="cartSingleItem">
-              <div className="moreOrLess" key={product.id}>
-                <img
-                  className="cartProductPicture"
-                  src={`${product.image}`}
-                  alt=""
-                  width={200}
-                />
-                <div className="nameAndQuantity">
-                  <h2>{product.name}</h2>
+      {cart.map((product) => {
+        return (
+          <div className="cartSingleItem">
+            <div className="moreOrLess" key={product.id}>
+              <img
+                className="cartProductPicture"
+                src={`${product.image}`}
+                alt=""
+                width={200}
+              />
+              <div className="nameAndQuantity">
+                <h2>{product.name}</h2>
 
-                  <div className="buttonCart">
+                <div className="buttonCart">
+                  {" "}
+                  <button
+                    className="buttonCart"
+                    onClick={() => handleChange(product)}
+                  >
                     {" "}
-                    <button
-                      className="buttonCart"
-                      onClick={() => handleChange(product)}
-                    >
-                      {" "}
-                      +{" "}
-                    </button>{" "}
-                    <p>{product.quantity}</p>
-                    <button
-                      className="buttonCart"
-                      onClick={() => handleDecrement(product)}
-                    >
-                      {" "}
-                      -{" "}
-                    </button>{" "}
-                    <button
-                      className="buttonCart"
-                      onClick={() => handleDelete(product)}
-                    >
-                      {" "}
-                      Delete{" "}
-                    </button>{" "}
-                  </div>
+                    +{" "}
+                  </button>{" "}
+                  <p className="productQuantity">{product.quantity}</p>
+                  <button
+                    className="buttonCart"
+                    onClick={() => handleDecrement(product)}
+                  >
+                    {" "}
+                    -{" "}
+                  </button>{" "}
+                  <button
+                    className="buttonCart deleteButton"
+                    onClick={() => handleDelete(product)}
+                  >
+                    {" "}
+                    Delete{" "}
+                  </button>{" "}
                 </div>
               </div>
-              <div className="priceCart">
-                {/* <h3>Price</h3> */}
-                <p>$ {product.currentPrice}</p>
-              </div>
             </div>
-          );
-        })}
-      </div>
+            <div className="priceCart">
+              {/* <h3>Price</h3> */}
+              <p>$ {product.currentPrice}</p>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
