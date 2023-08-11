@@ -75,9 +75,14 @@ function AllProducts({ handleClick, cart }) {
                     <p>$ {shoe.currentPrice}</p>
                   </div>
                 </div>
-                <button className="buttonAll" onClick={() => handleClick(shoe)}>
-                  Add to bag
-                </button>
+                <div className="buttonAlign">
+                  <button
+                    className="buttonAll"
+                    onClick={() => handleClick(shoe)}
+                  >
+                    Add to bag
+                  </button>
+                </div>
               </div>
             </div>
           );
