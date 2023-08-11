@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
+import CartIcon from "./CartIcon";
 
 // const API_URL = "https://carrito.adaptable.app/products";
 
@@ -78,7 +79,9 @@ function Category({ handleClick, cart }) {
       <h1>{category}</h1>
       <div>
         <Link to={`/cart`}>
-          <button>Check out 🛒 ({cart.length})</button>
+          <button>
+            <CartIcon />({cart.length})
+          </button>
         </Link>
       </div>
       {collection.map((product) => {

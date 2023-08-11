@@ -4,6 +4,7 @@ import axios from "axios";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
+import CartIcon from "../Components/CartIcon";
 
 const API_URL = "https://carrito.adaptable.app/products";
 
@@ -56,7 +57,9 @@ function ProductsId({ handleClick, cart }) {
         </select>
         <button onClick={() => handleClick(product)}>Add to bag</button>
         <Link to={`/cart`}>
-          <button>Check out 🛒 ({cart.length})</button>
+          <button>
+            <CartIcon />({cart.length})
+          </button>
         </Link>
       </article>
     </div>

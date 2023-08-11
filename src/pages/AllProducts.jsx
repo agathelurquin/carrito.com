@@ -55,14 +55,15 @@ function AllProducts({ handleClick, cart }) {
       <Search searchString={searchString} handleSubmit={setSearchString} />
       <div>
         <Link to={`/cart`}>
-          <button>Check out 🛒</button>
+          <button>
+            <CartIcon />
+          </button>
         </Link>
       </div>
 
       {/* {shoes.map((shoe) => { */}
 
       {shoes.map((shoe) => {
-
         return (
           <div>
             <div key={shoe.id}>
