@@ -80,7 +80,8 @@ function Category({ handleClick, cart }) {
       <div>
         <Link to={`/cart`}>
           <button>
-            <CartIcon />({cart.length})
+            <CartIcon />
+            <span className="item-count">({cart.length})</span>
           </button>
         </Link>
       </div>
