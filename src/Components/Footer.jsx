@@ -12,26 +12,28 @@ function Footer() {
       </a>
       </div>
       <div className='foot'>
-        <h3>_</h3>
+        {/* <h3>_</h3> */}
       </div>
    
       <div className="footerone">
         <h1>  C'est la vie </h1>
       </div>
      
+      <div className="footerthree">
+        <p><a className="p-a" href="mailto:info@example.com">amour@carrito.com</a></p>
+      </div >
       <div className="footertwo">
-        <address>📍 PARIS 
+        <address>📍 Paris 
         </address>
       </div>
-      <div className="footerthree">
-        <p><a href="mailto:info@example.com" style={{color:'white'}}>amour@carrito.com</a></p>
-      </div >
-      <h3>_</h3>
+      {/* <h3></h3>
+      <h3></h3> */}
       <div className="footerfour">
-        <h1> ©️ Developers: Agathe, Nicolas & Jose  </h1>
+        <p> ©️ Developers: Agathe, Nicolas & Jose  </p>
       </div>
+      {/* <h3>_</h3> */}
       <div>
-        <h3>_</h3>
+        {/* <h3>_</h3> */}
       </div>
     </div>
     </>

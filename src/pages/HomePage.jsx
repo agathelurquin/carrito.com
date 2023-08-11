@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Carrouselwomen from "../Components/Carrouselwomen"
 import Carrouselmen from "../Components/Carrouselmen"
-import videoHeader from "../assets/images/carritobanner2.mp4"
+import videoHeader from "../assets/images/carritobanneroficial.mp4"
 // import Carruselwoman from "../Components/Carrousel"
 // import Carruselkids from "../Components/Carruselkids"
 import Footer from "../Components/Footer";
@@ -47,7 +47,7 @@ function Home() {
 						alt="banner-no-promo"
 					/>
 			</div>  
-      <h1>Carrito</h1>
+      {/* <h1>Carrito</h1> */}
       <div className ="product-display">
        <div className="product-woman">
           <Carrouselwomen type="Woman" className="product-display"/>

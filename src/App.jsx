@@ -1,8 +1,6 @@
 import "./App.css";
 import "./detailsProduct.css";
 import { Routes, Route } from "react-router-dom";
-import Men from "./pages/Men";
-import Women from "./pages/Women";
 import NavBar from "./Components/Navbar";
 import HomePage from "./pages/HomePage";
 import AllProducts from "./pages/AllProducts";
@@ -15,6 +13,7 @@ import ScrollUpButton from "./Components/ScrollUpButton";
 
 function App() {
   const [cart, setCart] = useState([]);
+
   // useState(item
   // quantity: 0;
   // itemInfo; item}
@@ -58,13 +57,10 @@ function App() {
         The Route should look something like this:
         <Route path="/:category" element....  />
         */}
-        <Route path="/cat/:category" element={<CategoryPage />}></Route>
         <Route
           path="/cat/:category"
           element={<CategoryPage handleClick={handleClick} cart={cart} />}
         ></Route>
-        <Route path="/women" element={<Women />} />
-        <Route path="/men" element={<Men />} />
         <Route
           path="/all-products"
           element={<AllProducts handleClick={handleClick} cart={cart} />}
