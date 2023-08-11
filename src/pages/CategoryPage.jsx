@@ -82,9 +82,9 @@ function CategoryPage() {
 
   useEffect(() => {
     setPage(1);
-    if (sortCriteria === "all") {
-      setSortCriteria("");
-    }
+    // if (sortCriteria === "all") {
+    //   setSortCriteria("");
+    // }
     const options = {
       _page: 1,
       _sort: sortCriteria,
