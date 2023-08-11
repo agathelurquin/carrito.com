@@ -110,7 +110,12 @@ function CategoryPage() {
             <div className="itemCard">
               <div className="divWithAll" key={product.id}>
                 <Link to={`/product/${product.id}`}>
-                  <img src={`${product.image}`} alt="" width={200} />
+                  <img
+                    className="productPicture"
+                    src={`${product.image}`}
+                    alt=""
+                    width={200}
+                  />
                 </Link>
                 <div className="cardDetail">
                   <h2 className="titleName">{product.name}</h2>
