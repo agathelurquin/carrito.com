@@ -29,8 +29,8 @@ function App() {
         <Route path="/:category" element....  />
         */}
         <Route path="/cat/:category" element={<CategoryPage />}></Route>
-        <Route path="/women" element={<Women />} />
-        <Route path="/men" element={<Men />} />
+        {/* <Route path="/women" element={<Women />} />
+        <Route path="/men" element={<Men />} /> */}
         <Route
           path="/all-products"
           element={<AllProducts handleClick={handleClick} />}

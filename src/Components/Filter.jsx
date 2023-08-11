@@ -15,7 +15,6 @@ function Filter(props) {
           Please select an option
         </option>
         {filterOptions.map((option) => {
-          console.log("celle quon selectionne", option);
           return <option value={option}>{option}</option>;
         })}
       </select>

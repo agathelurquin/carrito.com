@@ -20,8 +20,7 @@ function CategoryPage() {
   // const [productType, setProductType] = useState("");
 
   let brandOptions = [];
-  let colourOptions = [];
-  let sortOptions = ["name", "currentPrice"];
+  let sortOptions = ["name", "currentPrice", "all"];
 
   // Récup les options uniques (colour...)
   useEffect(() => {
@@ -41,8 +40,6 @@ function CategoryPage() {
       })
       .catch((e) => console.log(e));
   }, []);
-
-  // console.log("AVANT REACT, APRES LE FETCH", brandSelection, colourSelection);
 
   function capitalizeCat(cat) {
     const firstLetter = cat.charAt(0);
@@ -85,6 +82,9 @@ function CategoryPage() {
 
   useEffect(() => {
     setPage(1);
+    if (sortCriteria === "all") {
+      setSortCriteria("");
+    }
     const options = {
       _page: 1,
       _sort: sortCriteria,
@@ -115,21 +115,6 @@ function CategoryPage() {
   return (
     <div className="collection">
       <h1>{category}</h1>
-      {/* <div className="filter">
-        <select
-          name="brand"
-          id="brand"
-          value={brand}
-          // onChange={(event) => setBrand(event.target.value)}
-        >
-          <option value="-1" disabled>
-            Please select a brand
-          </option>
-          {brands.map((brand) => {
-            return <option value={brand}>{brand}</option>;
-          })}
-        </select>
-      </div> */}
       <Filter
         filter={brand}
         filterOptions={brandSelection}
