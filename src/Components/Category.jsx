@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import CartCountBadge from "./CartCountBadge";
-
+import Navbar from "../Components/Navbar";
 // const API_URL = "https://carrito.adaptable.app/products";
 
 function Category({ handleClick, cart }) {
@@ -76,6 +76,7 @@ function Category({ handleClick, cart }) {
   console.log("RES===================>   ", collection);
   return (
     <div className="collection">
+      <Navbar />
       <h1>{category}</h1>
       <div>
         <Link to={`/cart`}>

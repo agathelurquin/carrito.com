@@ -29,13 +29,7 @@ function ProductsId({ handleClick, cart }) {
 
   return (
     <div>
-      <Navbar></Navbar>
-      <Link to={`/cart`}>
-        <button>
-          {" "}
-          <CartCountBadge number={cart.length} />
-        </button>
-      </Link>
+      <Navbar />
       <div className="productDetails">
         <div className="carousel">
           <Carousel width={500}>
