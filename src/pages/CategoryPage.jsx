@@ -104,22 +104,35 @@ function CategoryPage() {
         </select>
       </div> */}
       <Filter filter={brand} filterOptions={brands} setFilter={setBrand} />
-      {collection.map((product) => {
-        return (
-          <div key={product.id}>
-            <div>
-              <Link to={`/product/${product.id}`}>
-                <img src={`${product.image}`} alt="" width={200} />
-              </Link>
-              <h2>{product.name}</h2>
-              <h3>Colour</h3>
-              <p>{product.colour}</p>
-              <h3>Price</h3>
-              <p>$ {product.currentPrice}</p>
+      <div className="card">
+        {collection.map((product) => {
+          return (
+            <div className="itemCard">
+              <div className="divWithAll" key={product.id}>
+                <Link to={`/product/${product.id}`}>
+                  <img src={`${product.image}`} alt="" width={200} />
+                </Link>
+                <div className="cardDetail">
+                  <h2 className="titleName">{product.name}</h2>
+                  <div className="priceAndColor">
+                    <h3 className="productDetail">Colour: {product.colour} </h3>
+
+                    <p>$ {product.currentPrice}</p>
+                  </div>
+                </div>
+                <div className="buttonAlign">
+                  <button
+                    className="buttonAll"
+                    onClick={() => handleClick(shoe)}
+                  >
+                    Add to bag
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
       <InfiniteScroll
         dataLength={collection.length}
         data
