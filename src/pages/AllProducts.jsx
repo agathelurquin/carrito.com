@@ -7,7 +7,7 @@ import ScrollUpButton from "../Components/ScrollUpButton";
 
 // const API_URL = "https://carrito.adaptable.app/products";
 
-function AllProducts({ handleClick }) {
+function AllProducts({ handleClick, cart }) {
   const [shoes, setShoes] = useState(null);
   const [page, setPage] = useState(1);
   const [searchString, setSearchString] = useState("");
@@ -62,6 +62,7 @@ function AllProducts({ handleClick }) {
       {/* {shoes.map((shoe) => { */}
 
       {shoes.map((shoe) => {
+
         return (
           <div>
             <div key={shoe.id}>
