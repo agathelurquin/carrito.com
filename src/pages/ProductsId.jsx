@@ -6,6 +6,9 @@ import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
 import CartCountBadge from "../Components/CartCountBadge";
 
+import Navbar from "../Components/Navbar";
+
+
 const API_URL = "https://carrito.adaptable.app/products";
 
 function ProductsId({ handleClick, cart }) {
@@ -27,41 +30,47 @@ function ProductsId({ handleClick, cart }) {
 
   return (
     <div>
-      <h2>Product Id</h2>
-      <article key={product.id}>
-        <h1>{product.name}</h1>
-        <Carousel width={500}>
-          <img src={`${product.image}`} alt="" />
-          <img src={`${product.secondImages[0]}`} alt="" />
-          <img src={`${product.secondImages[1]}`} alt="" />
-          <img src={`${product.secondImages[2]}`} alt="" />
-        </Carousel>
-        <h2>Brand</h2>
-        <p>
-          <strong>{product.brandName}</strong>
-        </p>
-        <p>
-          {" "}
-          <strong>Description:</strong> {product.description}
-        </p>
-        <h2>Price</h2>
-        <p>$ {product.price}</p>
+      <Navbar></Navbar>
+      <Link to={`/cart`}>
+        <button>Check out 🛒 ({cart.length})</button>
+      </Link>
+      <div className="productDetails">
+        <div className="carousel">
+          <Carousel width={500}>
+            <img src={`${product.image}`} alt="" />
+            <img src={`${product.secondImages[0]}`} alt="" />
+            <img src={`${product.secondImages[1]}`} alt="" />
+            <img src={`${product.secondImages[2]}`} alt="" />
+          </Carousel>
+        </div>
 
-        <h2>Size</h2>
-        <select name="size" id="">
-          <option value="S">S</option>
-          <option value="M">M</option>
-          <option value="L">L</option>
-          <option value="XL">XL</option>
-          <option value="XXL">XXL</option>
-        </select>
-        <button onClick={() => handleClick(product)}>Add to bag</button>
-        <Link to={`/cart`}>
-          <button>
-            <CartCountBadge number={cart.length} />
+        <div className="details" key={product.id}>
+          <h1>{product.name}</h1>
+
+          {/* <p>
+            <strong>{product.brand}</strong>
+          </p> */}
+          <h2>Description:</h2>
+          <p> {product.description}</p>
+          <h2>Price</h2>
+          <p>$ {product.currentPrice}</p>
+          <div className="selectSize">
+            <h2>Size</h2>
+            <div className="size">
+              <select name="size" id="">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+              </select>
+            </div>
+          </div>
+          <button className="button" onClick={() => handleClick(product)}>
+            Add to bag
           </button>
-        </Link>
-      </article>
+        </div>
+      </div>
     </div>
   );
 }
