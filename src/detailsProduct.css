@@ -70,8 +70,12 @@ p {
 }
 
 .titleName {
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
   font-size: 1rem !important;
   text-align: center;
+  width: 20vw;
 }
 
 .productPicture {
