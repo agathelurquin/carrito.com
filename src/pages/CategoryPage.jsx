@@ -12,17 +12,34 @@ function CategoryPage() {
   const { category } = useParams();
   const [page, setPage] = useState(1);
   const [brand, setBrand] = useState("-1");
-  const [productType, setProductType] = useState("");
+  const [colour, setColour] = useState("-1");
+  const [brandSelection, setBrandSelection] = useState([]);
+  const [colourSelection, setColourSelection] = useState([]);
+  const [sortCriteria, setSortCriteria] = useState("-1");
 
-  const brands = [
-    "asos",
-    "Barbour International",
-    "Vans",
-    "pull&bear",
-    "puma",
-    "47 Brand",
-    "Barbour",
-  ];
+  // const [productType, setProductType] = useState("");
+
+  let brandOptions = [];
+  let sortOptions = ["name", "currentPrice", "all"];
+
+  // Récup les options uniques (colour...)
+  useEffect(() => {
+    axios
+      .get(`https://carrito.adaptable.app/products`)
+      .then((response) => {
+        let allBrands = response.data.map((item) => item.brand);
+        console.log("beggining", brandOptions);
+        const uniqueBrands = [...new Set(allBrands)];
+        setBrandSelection(uniqueBrands);
+
+        let allColours = response.data.map((item) => item.colour);
+        const uniqueColours = [...new Set(allColours)];
+        setColourSelection(uniqueColours);
+
+        console.log("RESULT", brandSelection);
+      })
+      .catch((e) => console.log(e));
+  }, []);
 
   function capitalizeCat(cat) {
     const firstLetter = cat.charAt(0);
@@ -30,6 +47,7 @@ function CategoryPage() {
     const remainingLetters = cat.slice(1);
     return `${firstLetterCap}${remainingLetters}`;
   }
+
   useEffect(() => {
     if (page === 1) return;
     const options = {
@@ -37,11 +55,15 @@ function CategoryPage() {
       _sort: "name",
       gender: capitalizeCat(category),
     };
-    console.log("THERE");
 
     if (brand !== "-1") {
       options.brand = brand;
     }
+    if (colour !== "-1") {
+      options.colour = colour;
+    }
+
+    // Infinite scroll avec filtres
     axios
       .get(`https://carrito.adaptable.app/products`, {
         params: options,
@@ -60,16 +82,21 @@ function CategoryPage() {
 
   useEffect(() => {
     setPage(1);
+    // if (sortCriteria === "all") {
+    //   setSortCriteria("");
+    // }
     const options = {
       _page: 1,
-      _sort: "name",
+      _sort: sortCriteria,
       gender: capitalizeCat(category),
     };
 
     if (brand !== "-1") {
       options.brand = brand;
     }
-    console.log("HERE");
+    if (colour !== "-1") {
+      options.colour = colour;
+    }
     axios
       .get(`https://carrito.adaptable.app/products`, {
         params: options,
@@ -79,7 +106,7 @@ function CategoryPage() {
         setCollection(fetchedCollection);
       })
       .catch((e) => console.log(e));
-  }, [brand]);
+  }, [brand, sortCriteria, colour]);
 
   if (!collection) {
     return <div className="loading">Loading...</div>;
@@ -88,22 +115,22 @@ function CategoryPage() {
   return (
     <div className="collection">
       <h1>{category}</h1>
-      {/* <div className="filter">
-        <select
-          name="brand"
-          id="brand"
-          value={brand}
-          // onChange={(event) => setBrand(event.target.value)}
-        >
-          <option value="-1" disabled>
-            Please select a brand
-          </option>
-          {brands.map((brand) => {
-            return <option value={brand}>{brand}</option>;
-          })}
-        </select>
-      </div> */}
-      <Filter filter={brand} filterOptions={brands} setFilter={setBrand} />
+      <Filter
+        filter={brand}
+        filterOptions={brandSelection}
+        setFilter={setBrand}
+      />
+      <Filter
+        filter={sortCriteria}
+        filterOptions={sortOptions}
+        setFilter={setSortCriteria}
+      />
+      <Filter
+        filter={colour}
+        filterOptions={colourSelection}
+        setFilter={setColour}
+      />
+
       {collection.map((product) => {
         return (
           <div key={product.id}>

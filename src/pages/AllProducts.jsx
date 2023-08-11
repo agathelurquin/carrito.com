@@ -15,18 +15,22 @@ function AllProducts({ handleClick, cart }) {
   useEffect(() => {
     // console.log(page);
     axios
-      .get(`https://carrito.adaptable.app/products?_page=${page}&_limit=12`)
+      .get(
+        `https://carrito.adaptable.app/products?q=${searchString}&_page=${page}&_limit=12`
+      )
       .then((res) => {
         let currentShoes = shoes ? shoes : [];
-        setShoes([...currentShoes, ...res.data]);
+        setShoes([...res.data]);
       })
       .catch((e) => console.log(e));
-  }, [page]);
+  }, [page, searchString]);
 
   const fetchData = () => {
     setPage(page + 1);
     axios
-      .get(`https://carrito.adaptable.app/products?_page=${page}&_limit=12`)
+      .get(
+        `https://carrito.adaptable.app/products?q=${searchString}&_page=${page}&_limit=12`
+      )
       .then((res) => {
         let currentShoes = shoes ? shoes : [];
         setShoes([...currentShoes, ...res.data]);
@@ -36,22 +40,24 @@ function AllProducts({ handleClick, cart }) {
   if (!shoes) {
     return <div className="loading">Loading...</div>;
   }
-  let collectionToDisplay;
-  if (!searchString) {
-    collectionToDisplay = shoes;
-  } else {
-    collectionToDisplay = shoes.filter((product) =>
-      product.name.toLowerCase().includes(searchString.toLowerCase())
-    );
-  }
+  // let collectionToDisplay;
+  // if (!searchString) {
+  //   collectionToDisplay = shoes;
+  // } else {
+  //   collectionToDisplay = shoes.filter((product) =>
+  //     product.name.toLowerCase().includes(searchString.toLowerCase())
+  //   );
+  // }
   return (
     <div>
       <h1>All Products</h1>
 
       <Search searchString={searchString} handleSubmit={setSearchString} />
-      <Link to={`/cart`}>
-        <button>Check out 🛒 ({cart.length})</button>
-      </Link>
+      <div>
+        <Link to={`/cart`}>
+          <button>Check out 🛒</button>
+        </Link>
+      </div>
 
       {/* {shoes.map((shoe) => { */}
       <div className="card">
@@ -72,13 +78,22 @@ function AllProducts({ handleClick, cart }) {
                   <div className="priceAndColor">
                     <h3 className="productDetail">Colour: {shoe.colour}</h3>
 
-                    <p>$ {shoe.currentPrice}</p>
-                  </div>
-                </div>
-                <button className="buttonAll" onClick={() => handleClick(shoe)}>
-                  Add to bag
-                </button>
-              </div>
+
+      {shoes.map((shoe) => {
+
+        return (
+          <div>
+            <div key={shoe.id}>
+              <Link to={`/product/${shoe.id}`}>
+                <img src={`${shoe.image}`} alt="" width={200} />
+              </Link>
+              <h2>{shoe.name}</h2>
+              <h3>Colour</h3>
+              <p>{shoe.colour}</p>
+              <h3>Price</h3>
+              <p>$ {shoe.currentPrice}</p>
+              <button onClick={() => handleClick(shoe)}>Add to bag</button>
+
             </div>
           );
         })}
