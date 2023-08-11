@@ -1,6 +1,5 @@
 import React from "react";
-import { ClockCircleOutlined } from "@ant-design/icons";
-import { Avatar, Badge, Space } from "antd";
+import { Badge, Space } from "antd";
 import CartIcon from "./CartIcon";
 
 function CartCountBadge(props) {
